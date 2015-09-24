@@ -1,0 +1,45 @@
+\section{Matrix-vector product}
+
+Generate a random real $n\times m$ matrix $A$ and a random vector column $x$ (use MATLAB $rand$ function).
+\begin{enumerate}
+\item Compute the matrix-vector product $b=A x$.
+\item Compute the same product using a for loop and the formula $b_{j}=\sum_{i=1}^{m}A_{ij}x_{j}$.
+\item Compute it once more using the scalar product of the vector $x$ with each row of the matrix A, more precisely:
+\begin{lstlisting}
+y(i) = A(i,:)*x;
+\end{lstlisting}
+Make sure that you have defined $y$ as row vector before you try the previous step.
+\item Make sure that all the three computations give the same result by computing 
+the norm of the difference of the vectors computed from the previous steps. For example
+the norm of the difference between two vectors $x,y$ can be computed by the following code:
+\begin{lstlisting}
+difference_norm = norm(x-y);
+\end{lstlisting}
+\end{enumerate}
+ 
+%Consider the real $x \times n$ matrix $\mathbf A$ defined by  $(\mathbf A)_{i,j}$ for $i,j=1, \cdots, n.$ The
+%matrix-vector product $y = \mathbf Ax$ can be implemented in Matlab as $y=min(ones(n,1)*(1:n),(1:n)*ones(1,n))*x;$
+
+%\begin{enumerate}
+%\item What is the asymptotic complexity (for $n\rightarrow \infty$) of the evaluation of the Matlab command
+%displayed above, with respect to the problem size parameter $n$?
+%\item Write an efficient Matlab function $function \;\; y = multAmin(x)$
+
+%\begin{lstlisting}[numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt]
+%n = 10;
+%5D = [-ones(n,1), [2*ones(n-1,1);1], -ones(n,1)];
+%B = spdiags(D, [-1, 0, 1], n, n);
+%x = rand(n,1);
+%fprintf('|x-y| = %d \n', norm(multAmin(B*x)-x));
+
+%\end{lstlisting}
+
+
+
+%that computes the same multiplication as (1) but with a better asymptotic complexity with respect to $n$.%
+
+%Hint: you can test your implementation by comparing the returned values with the ones obtained with code (1).
+
+%\item What is the asymptotic complexity (in terms of problem size parameter n) of your function multAmin?
+
+%\end{enumerate}

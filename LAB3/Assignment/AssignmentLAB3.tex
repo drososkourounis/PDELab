@@ -84,9 +84,9 @@ function writeMeshAsVTKFile(mesh, vtkfile)
 Use the following code sample for the assembly of your discrete operators.
 \begin{lstlisting}[numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt]
 function [M,K,b] = assembleDiscreteOperators(mesh)
-  N   = size(mesh.Points, 1);
-  Ne  = size(mesh.Elements,1)
-  Nv  = size(mesh.Elements,2)
+  N   = mesh.N;
+  Ne  = mesh.Ne;
+  Nv  = mesh.Nv;
   M   = zeros(N,N); K = zeros(N,N);
   b   = zeros(N,1);
   for e=1:Ne
@@ -94,9 +94,9 @@ function [M,K,b] = assembleDiscreteOperators(mesh)
     Ke = makeKe(e, mesh);
     fp = makebe(e, mesh);
     for i=1:Nv
-      I = Elements(e, i);
+      I = mesh.Elements(e, i);
       for j=1:Nv
-        J = Elements(e, j);
+        J = mesh.Elements(e, j);
         M(I, J) = M(I, J) + Me(i, j);
         K(I, J) = K(I, J) + Ke(i, j);
       end % j loop

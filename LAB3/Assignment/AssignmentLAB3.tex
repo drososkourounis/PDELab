@@ -85,17 +85,17 @@ Use the following code sample for the assembly of your discrete operators.
 \begin{lstlisting}[numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt]
 function [M,K,b] = assembleDiscreteOperators(mesh)
   N   = mesh.N;
-  Ne  = mesh.Ne;
-  Nv  = mesh.Nv;
+  Ne  = mesh.N_e;
+  Nv  = mesh.N_v;
   M   = zeros(N,N); K = zeros(N,N);
   b   = zeros(N,1);
   for e=1:Ne
     Me = makeMe(e, mesh);
     Ke = makeKe(e, mesh);
     fp = makebe(e, mesh);
-    for i=1:Nv
+    for i=1:N_v
       I = mesh.Elements(e, i);
-      for j=1:Nv
+      for j=1:N_v
         J = mesh.Elements(e, j);
         M(I, J) = M(I, J) + Me(i, j);
         K(I, J) = K(I, J) + Ke(i, j);

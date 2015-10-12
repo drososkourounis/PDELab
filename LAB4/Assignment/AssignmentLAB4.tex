@@ -66,21 +66,15 @@ space dimensions.
 function [mesh] = makeGrid(L_x, L_y, N_x, N_y, grid_type)
 \end{lstlisting}
 The output \lstinline+mesh+ is a MATLAB structure that contains all the information that are needed for the mesh generation
-and mesh description, namely, \lstinline+delta_x, delta_y, N_x, N_y, L_x, L_y, N_e, N_v, N, Elements, Points, PointMarkers+. The parameters \lstinline+L_x,L_y+ represent the length and height of the domain at each direction. Here both are equal to $1$, since our domain $\Omega = [0, 1]^2$. However, it does not hurt to write the code for the general case. 
+and mesh description, namely, \lstinline+delta_x, delta_y, N_x, N_y, L_x, L_y, N_e, N_v, N, Elements, Points, PointMarkers+. The parameters \lstinline+L_x, L_y+ represent the length and height of the domain at each direction. Here both are equal to $1$, since our domain $\Omega = [0, 1]^2$. However, it does not hurt to write the code for the general case. 
 
 The array \lstinline+PointMarkers+ should be 0 at every point except those points that belong to the boundary where they should be 1. We will 
 need it later to enforce Dirichlet boundary conditions to our Discrete system of equations.
-Use the MATLAB function \lstinline+writeMeshAsVTKFile.m+ in the \lstinline+MATLAB+ folder
-and call it passing the structure mesh and the name of the output file.
-This will dump the grid as a VTK file that you can visualize using visualization package ViSiT. The declarations follow.
-\begin{lstlisting}[numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt]
-function writeMeshAsVTKFile(mesh, vtkfile)
-\end{lstlisting}
-
 
 
 \section{Finite element assembly}
-Use the following code sample for the assembly of your discrete operators.
+Use the following code sample for the assembly of your discrete operators. This version
+is slightly faster than the previous one.
 \begin{lstlisting}[numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt]
 function [M,K,b] = assembleDiscreteOperators(mesh)
   N   = mesh.N;
@@ -100,7 +94,8 @@ end
 \end{lstlisting}
 Provide implementations of the individual 
 functions needed for forming the element mass matrix \lstinline+M_e+, element Laplacian \lstinline+K_e+ 
-and the element rhs \lstinline+b_e+. Use the provided MATLAB routines \lstinline+Ksymbolic.m, Msymbolic.m+ that can be found in the \lstinline+MATLAB+ folder. These routines will compute the mass and stiffness matrices only for the particular grid type. The result will be wrong in the general case where we need to use quadrature.
+and the element rhs \lstinline+b_e+. Use the provided MATLAB routines \lstinline+Ksymbolic.m, Msymbolic.m+ that can be found in the \lstinline+MATLAB+ folder. 
+These routines will compute the mass and stiffness matrices only for the particular grid type. The result will be wrong in the general case where we need to use quadrature.
 \begin{lstlisting}[numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt, identifierstyle=\ttfamily\color{Red}\bfseries] 
 function Me = makeMe(e, mesh);
 function Ke = makeKe(e, mesh);
@@ -136,5 +131,14 @@ You are free to use sparse matrices to speed up the solution of the related line
 
 
 \section{Visualization}
-Use ViSiT to visualize the solution for each different mesh resolution. 
+Use the \lstinline+MATLAB+ function \lstinline+writeMeshAsVTKFile.m+ in the \lstinline+MATLAB+ folder
+and call it passing the structure mesh, the solution \lstinline+u_h+ and the name of the output file.
+The name of the output file should be modified so that files are not overwritten. You can use the
+\lstinline+MATLAB+ function \lstinline+sprintf+ to concatanate the number \lstinline+N_x+ to the file name.
+This will dump the grid as a VTK file that you can visualize using visualization package ViSiT. The declaration follows.
+\begin{lstlisting}[numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=10pt]
+function writeMeshAsVTKFile(mesh, u_h, vtkfile)
+\end{lstlisting}
+The visualizations should be presented in the \LaTeX~assignment you will deliver.
+
 \end{document}

@@ -1,0 +1,155 @@
+% ------------------------------------------------------------------------- %
+%
+%  Assignment 1 Computational Scoience Course, USI ICS Lugano, Spring 2013.
+%
+% ------------------------------------------------------------------------- %
+
+\documentclass[11pt,a4paper,twoside]{article} %{scrartcl}
+
+\usepackage[latin1]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{epic,eepic}         % Include epic graphs.
+\usepackage{psfrag}             % Allow TeX in eps files.
+\usepackage{times}
+\usepackage{tabularx}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{ifthen}
+\usepackage{nicefrac}
+
+\usepackage{mcode}
+
+\usepackage{wasysym}
+\usepackage{marvosym}
+\usepackage{pifont}     % www.tug.org/tex-archive/macros/latex/required/psnfss/
+
+
+% --- Paper format -------------------------------------------------------- %
+
+\setlength{\voffset}{0in}
+\setlength{\hoffset}{-1in}
+\setlength{\topmargin}{0cm}
+\setlength{\topskip}{-11.0cm}
+
+%\setlength{\headsep}{0.0cm}
+\setlength{\headheight}{0cm}
+
+\setlength{\oddsidemargin}{1.5cm}
+\setlength{\evensidemargin}{1.5cm}
+
+\setlength{\textwidth}{18cm}
+\setlength{\textheight}{23cm}
+\newcommand{\figwidths}{0.95\textwidth}
+\newcommand{\figwidthd}{0.45\textwidth}
+
+
+
+% --- Header -------------------------------------------------------------- %
+
+\pagestyle{fancy}
+\rhead{ \vspace{-6cm}
+\begin{minipage}[r]{4cm}
+    \includegraphics[width=3cm]{../../../images/USI}
+   \vspace{0.2cm}
+\end{minipage}}
+\lhead{\vspace{-4cm}
+\begin{minipage}[l]{.6\linewidth}
+    %\centering
+    Computational Science Course, Spring Semester 2013\\
+    Prof. Olaf  Schenk, Dr. Drosos Kourounis, Andrey Kuzmin\\ 
+    %Faculty of Informatics, Universita della Svizzera italiana\\
+    %http://www2.icorsi.ch/course/view.php?id=2236
+\end{minipage}
+}
+
+
+
+\cfoot{Page \thepage \ of \pageref{lastpage}}
+%\cfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\parindent 0pt
+
+
+% --- Stil fuer Programmfragmente ------------------------------------------ %
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{cmyk}{0.62,0.57,0.23,0}
+
+\lstset{
+  language=matlab,
+  basicstyle=\ttfamily,
+  frame=ltrb,
+  framesep=5pt,
+  basicstyle=\normalsize,
+  stringstyle=\ttfamily,
+  commentstyle=\ttfamily\color{Brown},
+  keywordstyle=\ttfamily\color{OliveGreen}\bfseries,
+  identifierstyle=\ttfamily, 
+  tabsize=2,
+  showstringspaces=true}
+
+
+% --- Makrodefinitionen --------------------------------------------------- %
+
+\newcommand{\punkte}[1]{\hspace{1ex}\emph{\mdseries\hfill(#1~\ifcase#1{Points}\or{Points}\else{Points}\fi)}}
+\newcommand{\leer}{\vspace{3cm}}
+\newcommand{\blank}{\rule[-3pt]{8em}{0.5pt}}
+
+\newcommand{\kast}{\fbox{\rule[1.3ex]{1ex}{0pt}}\hspace{.5ex}}
+%\newcommand{\kast}{{\Large\ding{111}}\hspace{.5ex}}
+
+\newcommand{\ausfuell}{\raisebox{-4pt}{.................................................................................}}
+
+\newenvironment {loesung}
+{%
+  \begin{quote}
+      \textbf{L"osung:}
+      \begin{small}
+        }%
+        {%
+      \end{small}
+  \end{quote}
+}
+         
+\newcommand{\lsgpunkte}[1]{\hspace{1ex}\emph{(#1 \ifcase#1{Punkte}\or{Punkt}\else{Punkte}\fi)}}
+
+
+% ------------------------------------------------------------------------- %
+% --- Dokument ------------------------------------------------------------ %
+
+% For exercise set solution to false, true for solution
+\newboolean{solution} 
+%\setboolean{solution}{true}
+\setboolean{solution}{false}
+
+
+\begin{document}
+
+% --- Erste Seite --------------------------------------------------------- %
+\begin{center}   
+    \LARGE
+    Exercise 0 \\
+    Release: Feb 25, 2013, Discussion in Class: Feb 27, 2013  \\[1em]
+\end{center}
+
+\newcommand{\wtg}{\ding{220}}
+
+\input{ex1.tex}
+\input{ex2.tex}
+\input{ex3.tex}
+\input{ex4.tex}
+
+
+\section*{References}
+ [1] Uri Ascher, Chen Greif, {\sl A First Course in Numerical Methods}. SIAM Computational Science and Engineering, 2011.
+
+ [2] Cleve Moler, {\sl  Numerical Computing with Matlab}, Revised Reprint, SIAM, 2004.
+\label{lastpage}
+
+\end{document}

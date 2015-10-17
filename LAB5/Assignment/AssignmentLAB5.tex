@@ -1,0 +1,135 @@
+\documentclass[unicode,11pt,a4paper,oneside,numbers=endperiod,openany]{scrartcl}
+
+\usepackage{assignment}
+\usepackage{textcomp}
+\usepackage{url}
+\hyphenation{PageRank}
+\hyphenation{PageRanks}
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{Green}{rgb}{0.516, 0.5976, 0.480}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{rgb}{0.17,0.30,0.547}
+\definecolor{Red}{rgb}{0.684,0.156,0.32}
+\lstset{
+  language=matlab,
+  basicstyle=\ttfamily,
+  frame=ltrb,
+  framesep=5pt,
+  basicstyle=\scriptsize,
+  stringstyle=\ttfamily\color{Brown}\bfseries,
+  commentstyle=\ttfamily\color{Green}\bfseries,
+  keywordstyle=\ttfamily\color{CadetBlue}\bfseries,
+  identifierstyle=\ttfamily, 
+  tabsize=2,
+  showstringspaces=true,
+  numbers=none
+}
+
+
+
+\begin{document}
+
+\setassignment
+\setduedate{Thursday 22 October 2015, 10:30}
+\serieheader{Introduction to PDEs (LAB)}{Academic Year 2015/2016}{Instructor: Prof. Rolf Krause}{Dr. Drosos Kourounis}{Assignment 5 - Finite Element Solution of Poisson's equation in 3D}{}
+
+\section*{Solution of Poisson's equation}
+We seek the discrete solution of Poisson's equation
+\begin{align*}
+-&\nabla^2 u(x, y, z) = f(x,y, z), \quad \in \Omega \\
+&\frac{\partial{u}}{\partial n}       = 0, \quad y=1, z=1,\\
+&u(x, y, z) = u_0(x, y, z), \text{otherwise},
+\end{align*}
+where $\Omega = [0,1]^3$. We discretize the domain $\Omega$ using a quadrilateral $N_x \times N_y \times N_z$ grid of trilinear elements. 
+\begin{enumerate}
+\item Find the analytical expression of $f(x,y)$ so that the exact 
+solution of the PDE is \[u_0(x,y) =x\, e^{-(y-1)^2 (z-1)^2}.\] 
+\item Verify that the exact solution satisfies the homogeneous Neumann conditions
+at $y=1$ and at $z=1$. 
+\item Implement the solution in \small{MATLAB} following the steps described below.
+\end{enumerate}
+
+
+\section{Mesh generation}
+Modify the mesh generation routine you already have,
+so that it assumes three input arguments for the cube dimensions $L_x,L_y,L_z$ and 
+three for the grid size $N_x,N_y,N_z$. It outputs the hexahedral or tetrahedral mesh of the cube.
+
+
+\section{Finite element assembly}
+\begin{itemize}
+\item Compute by hand the mass matrix and the Laplacian on the Hexahedron $[0, 1]^3$ and
+the Tetrahedron [(0,0,0), (1, 0, 0), (0, 1, 0), (0, 0, 1)].
+\item Compute the mass and Laplacian matrices on the single-element grid consisting
+of the hexahedron or the tetrahedron you used in the previous step using your code. 
+\end{itemize}
+
+
+\section{Local operators}
+Modify the following functions to obtain the local operators for the hexahedral.
+\begin{center}
+$\displaystyle M_e = \int_{V_e} N_i N_j d V_e$
+\end{center}
+\lstinputlisting[language=matlab,firstnumber=1,basicstyle=\ttfamily\scriptsize]{Msymbolic.m}
+\begin{center}
+$\displaystyle K_e = \int_{V_e} \nabla N_i \cdot \nabla N_j d V_e$
+\end{center}
+\lstinputlisting[language=matlab,firstnumber=1,basicstyle=\ttfamily\scriptsize]{Ksymbolic.m}
+
+\section{Enforce boundary conditions}
+Describe the necessary modifications to the code so that you enforce 
+Dirichlet conditions such that the symmetry of the matrix is maintained.
+
+
+
+\section{Linear system}
+\begin{enumerate}
+\item
+Use the direct sparse solver implemented in \small{MATLAB} (backslash)
+to solve the linear system for $h = \delta z = \delta y = \delta x = 1/N$ for $N=10,20,40,80,160$.
+Create a table listing the running time of the direct sparse solver.
+%\item 
+%For $N$ as above solve the linear system using the following iterative methods
+%\begin{enumerate}
+%\item PCG
+%\item MinRes
+%\item SymmLQ
+%\item LSMR
+%\item CGS
+%\item BiCGStab
+%\end{enumerate}
+%without preconditioner, with diagonal preconditioner  and with incomplete Cholesky 
+%preconditioner, provided in \small{MATLAB} by the command ichol. For each case
+%set $tol = 10^{-8}$ and $maxiters = 1000$. For each preconditioner plot the relative
+%residual (use logarithmic scale for the the y-axis) at each iteration (x-axis). Use a single
+%plot for all iterative methods. You should present 3 plots, one for each preconditioner.
+%\item
+%Additionally provide a table listing for each preconditioner the number of iterations 
+%the time spent until convergence and the final residual. 
+\end{enumerate}
+
+\section{Convergence study}
+Perform a study of the convergence. Similarly to
+previous assignments compute the $L^2$ and $H^1$ norms of the error and plot it {\bf using logarithmic scale on both axes}
+as a function of $h = \delta z = \delta y = \delta x = 1/N$ for $N=10,20,40,80,160$.
+Note that the discrete $L^2$ and $H^1$ norms are easilly obtained from
+\begin{align*}
+\|u - u_h\|_{L^2} &= \sqrt{(u-u_h)^T M (u-u_h)} \\
+\|u - u_h\|_{H^1} &= \sqrt{(u-u_h)^T M (u-u_h) + (u-u_h)^T K (u-u_h)},
+\end{align*}
+where $u_h$ is the vector of the discrete finite element solution you 
+obtained by solving the linear system $K u_h = b$ and $u$ is the vector
+of the exact values of the solution (recall that the exact solution
+is given by $u_0(x,y,z)$) evaluated at the grid-points. 
+
+\section{Performance study}
+For each $N$ of the previous question, compute the time needed for the assembly,
+and the solution of the linear system and plot them on the same plot on logarithmic 
+scale on both axes.
+
+\section{Visualization}
+For both grid types visualize the solution using (ViSiT) for three values of $N$, $N=10,80,160$ 
+and also visualize the exact solution at the end (as the fourth plot) for comparison.
+
+\end{document}

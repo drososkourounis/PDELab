@@ -1,0 +1,81 @@
+\documentclass[unicode,11pt,a4paper,oneside,numbers=endperiod,openany]{scrartcl}
+
+\usepackage{assignment}
+\usepackage{textcomp}
+\usepackage{url}
+\hyphenation{PageRank}
+\hyphenation{PageRanks}
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{Green}{rgb}{0.516, 0.5976, 0.480}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{rgb}{0.17,0.30,0.547}
+\definecolor{Red}{rgb}{0.684,0.156,0.32}
+\lstset{
+  language=matlab,
+  basicstyle=\ttfamily,
+  frame=ltrb,
+  framesep=5pt,
+  basicstyle=\scriptsize,
+  stringstyle=\ttfamily\color{Brown}\bfseries,
+  commentstyle=\ttfamily\color{Green}\bfseries,
+  keywordstyle=\ttfamily\color{CadetBlue}\bfseries,
+  identifierstyle=\ttfamily, 
+  tabsize=2,
+  showstringspaces=true,
+  numbers=none
+}
+
+
+
+\begin{document}
+
+\setassignment
+\setduedate{Thursday 29 October 2015, 10:30}
+\serieheader{Introduction to PDEs (LAB)}{Academic Year 2015/2016}{Instructor: Prof. Rolf Krause}{Dr. Drosos Kourounis}{Assignment 6 - Finite Element Solution of Poisson's equation in 3D}{}
+
+\section*{Solution of Poisson's equation}
+We seek the discrete solution of Poisson's equation
+\begin{align*}
+-&\nabla^2 u(x, y, z) = f(x,y, z), \quad \in \Omega \\
+&\frac{\partial{u}}{\partial n}       = 0, \quad y=1, z=1,\\
+&u(x, y, z) = u_0(x, y, z), \text{otherwise},
+\end{align*}
+where $\Omega = [0,1]^3$. We discretize the domain $\Omega$ using a quadrilateral $N_x \times N_y \times N_z$ grid of trilinear elements. 
+\begin{enumerate}
+\item Find the analytical expression of $f(x,y)$ so that the exact 
+solution of the PDE is \[u_0(x,y) =x\, e^{-(y-1)^2 (z-1)^2}.\] 
+\item Verify that the exact solution satisfies the homogeneous Neumann conditions
+at $y=1$ and at $z=1$. 
+\item Implement the solution in \small{MATLAB} following the steps described below.
+\end{enumerate}
+
+
+\section{Mesh generation}
+Modify the mesh generation routine you already have,
+so that it assumes three input arguments for the cube dimensions $L_x,L_y,L_z$ and 
+three for the grid size $N_x,N_y,N_z$. It outputs the hexahedral or tetrahedral mesh of the cube.
+
+
+\section{Finite element assembly}
+Use the MATLAB implementation of the fast assembly provided with the Assignment (in the git repository) \lstinline+FastAssemblyLhs.m, FastAssemblyRhs.m+
+and replace the slow assembly code you used for Assignment 5 with the new code. The code will not
+work out of the box, it needs to be adapted to your own mesh structure. Once you finish with the adaptations and the code works, 
+\begin{itemize}
+\item Make sure that the results are the same (error norms decrease as previously).
+\item Create a table containing 4 columns. The first column should be $N=10,20,40,80$.
+The rest should be the time needed for the slow assembly, 
+fast assembly and the solution of the linear system. This table will be populated with higher values of the index $N$ in future assignments. So, enjoy ...
+\end{itemize}
+
+\begin{frame}{\lstinline+FastAssemblyRhs.m+}
+\lstinputlisting[language=matlab,firstnumber=1,basicstyle=\ttfamily\scriptsize]{FastAssemblyRhs.m}
+\end{frame}
+\newpage
+\begin{frame}{\lstinline+FastAssemblyLhs.m+}
+\lstinputlisting[language=matlab,firstnumber=1,basicstyle=\ttfamily\scriptsize]{FastAssemblyLhs.m}
+\end{frame}
+
+
+
+\end{document}

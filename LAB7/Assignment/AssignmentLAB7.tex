@@ -1,0 +1,133 @@
+\documentclass[unicode,11pt,a4paper,oneside,numbers=endperiod,openany]{scrartcl}
+
+\usepackage{assignment}
+\usepackage{textcomp}
+\usepackage{url}
+\hyphenation{PageRank}
+\hyphenation{PageRanks}
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{Green}{rgb}{0.516, 0.5976, 0.480}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{rgb}{0.17,0.30,0.547}
+\definecolor{Red}{rgb}{0.684,0.156,0.32}
+\lstset{
+  language=matlab,
+  basicstyle=\ttfamily,
+  frame=ltrb,
+  framesep=5pt,
+  basicstyle=\scriptsize,
+  stringstyle=\ttfamily\color{Brown}\bfseries,
+  commentstyle=\ttfamily\color{Green}\bfseries,
+  keywordstyle=\ttfamily\color{CadetBlue}\bfseries,
+  identifierstyle=\ttfamily, 
+  tabsize=2,
+  showstringspaces=true,
+  numbers=none
+}
+
+
+
+\begin{document}
+
+\setassignment
+\setduedate{Thursday 12 November 2015, 10:30}
+\serieheader{Introduction to PDEs (LAB)}{Academic Year 2015/2016}{Instructor: Prof. Rolf Krause}{Dr. Drosos Kourounis}{Assignment 7 - Iterative Krylov-based methods}{}
+
+\section*{Solution of Poisson's equation using iterative Krylov methods}
+Solve the same equation you solved in LAB6 replacing the backslash
+with each one of the methods provided in the MATLAB folder of our repository. 
+Enforcing Dirichlet boundary conditions renders the system non-symmetric.
+For the non-symmetric version of the system you should use Krylov-space methods
+designed for non-symmetric systems of equations, nameley CGS, BICGSTAB and GMRES.
+These can be used with both the incomplete Cholesky (ichol) and incomplete LU
+(ilu) preconditioners. Report iterations and residual for each choice of method
+and preconditioner in a table where the horizontal row is $N=50,100,200$,
+and the vertical row of the table is the Krylov method. In order for this to work
+as expected, you need to write a function that returns the application of the preconditioner
+on a vector, and instead of providing the preconditioner matrix $M$ on each one of these
+methods you should provide a pointer to function. Read MATLAB documentation to understand
+how to do this.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|r|r|}
+\hline
+                  &  \multicolumn{3}{|c|}{$N$} \\
+\hline
+ Krylov method    & 50  & 100 & 200 \\
+\hline
+GMRES(ilu)        & iters (residual)    &  iters (residual)   &  iters (residual)\\
+GMRES(ichol)      &     &     &  \\
+\hline
+CGS(ilu)          &     &     &  \\
+CGS(ichol)        &     &     &  \\
+\hline
+BICGSTAB(ilu)     &     &     &  \\
+BICGSTAB(ichol)   &     &     &  \\
+\hline
+\end{tabular}
+\caption{Performance of non-symmetric Krylov methods with ilu0 and ichol preconditioners on a grid of size $N \times N \times N$.}
+\end{table}
+Implement the symmetric version of Dirichlet conditions. Now you can use ichol
+with conjugate gradient CG and QMR as well. Create another table 
+You should try both the preconditioners provided from MATLAB 
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|r|r|}
+\hline
+                  &  \multicolumn{3}{|c|}{$N$} \\
+\hline
+ Krylov method    & 50  & 100 & 200 \\
+\hline
+CG                &  iters (residual)   &  iters (residual)   &  iters (residual)\\
+\hline
+QMR               &     &     &  \\
+\hline
+GMRES             &     &     &  \\
+\hline
+CGS               &     &     &  \\
+\hline
+BICGSTAB          &     &     &  \\
+\hline
+\end{tabular}
+\caption{Performance of symmetric and non-symmetric Krylov methods with ichol 
+         preconditioners with Dirichlet conditions preserving the symmetry of 
+         the original stiffness matrix, on a grid of size $N \times N \times N$.}
+\end{table}
+Plot the log of the residual norm (y-axis) as a function of the iterations (x-axis)
+for all the methods of Table 2, for two cases. One plot for $N=50$ and one for $N=200$ side-by-side.
+Use different colors for each method and make sure you add a legend in your plots. 
+
+
+\section*{Using FEniCS}
+Solve the same problem using FEniCS. Choose the Krylov solvers you see below and the hypre\_amg
+or petsc\_amg and icc preconditioners. Create a similar table with Table 2. Finally make a table
+of the running times for both FEniCS and your code.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|r|r|r|}
+\hline
+                  &  \multicolumn{3}{|c|}{$N$} \\
+\hline
+ Krylov method    & 50  & 100 & 200 \\
+\hline
+CG (HYPRE)        &                     &                     & 3 (1.067e-8)  \\
+CG (KSP)          &                     &                     & 7 (3.008e-8)  \\
+CG (ICC)          &                     &                     &68 (4.739e-7)  \\
+\hline
+GMRES (HYPRE)     &                     &                     & 3 (1.016e-4) \\
+GMRES (KSP)       &                     &                     & 7 (1.016e-4) \\
+GMRES (ICC)       &                     &                     & 60 (2.2e-4) \\
+\hline
+BICGSTAB (HYPRE)  &                     &                     & 3 (1.512e-8) \\
+BICGSTAB (KSP)    &                     &                     & 7 (7.126e-8) \\
+BICGSTAB (ICC)    &                     &                     & 48 (1.769e-7) \\
+\hline
+\end{tabular}
+\caption{Performance of symmetric and non-symmetric Krylov methods with icc, petsc\_amg and hypre\_amg  preconditioners with Dirichlet conditions preserving the symmetry of 
+         the original stiffness matrix, on a grid of size $N \times N \times N$.}
+\end{table}
+
+
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass[unicode,11pt,a4paper,oneside,numbers=endperiod,openany]{scrartcl}
+
+\usepackage{assignment}
+\usepackage{textcomp}
+\usepackage{url}
+\hyphenation{PageRank}
+\hyphenation{PageRanks}
+
+\definecolor{Brown}{cmyk}{0,0.81,1,0.60}
+\definecolor{Green}{rgb}{0.516, 0.5976, 0.480}
+\definecolor{OliveGreen}{cmyk}{0.64,0,0.95,0.40}
+\definecolor{CadetBlue}{rgb}{0.17,0.30,0.547}
+\definecolor{Red}{rgb}{0.684,0.156,0.32}
+\lstset{
+  language=matlab,
+  basicstyle=\ttfamily,
+  frame=ltrb,
+  framesep=5pt,
+  basicstyle=\scriptsize,
+  stringstyle=\ttfamily\color{Brown}\bfseries,
+  commentstyle=\ttfamily\color{Green}\bfseries,
+  keywordstyle=\ttfamily\color{CadetBlue}\bfseries,
+  identifierstyle=\ttfamily, 
+  tabsize=2,
+  showstringspaces=true,
+  numbers=none
+}
+
+\def\u{{\bf u}}
+\def\c{{\bf c}}
+\def\f{{\bf f}}
+\def\n{{\bf n}}
+\def\d{{\bf d}}
+\def\w{{\bf w}}
+\def\v{{\bf v}}
+\def\e{{\bf e}}
+\def\b{{\bf b}}
+\def\x{{\bf x}}
+\def\s{{\bf s}}
+\def\g{{\bf{G}}}
+\def\p{{\bf{g}}}
+\def\h{{\bf h}}
+\def\A{{\bf A}}
+\def\H{{\bf H}}
+\def\Z{{\bf Z}}
+\def\W{{\bf W}}
+\def\0{{\bf 0}}
+
+\begin{document}
+
+\setassignment
+\setduedate{Thursday 29 October 2015, 10:30}
+\serieheader{Introduction to PDEs (LAB)}{Academic Year 2015/2016}{Instructor: Prof. Rolf Krause}{Dr. Drosos Kourounis}{Assignment 6 - Finite Element Solution of Poisson's equation in 3D}{}
+
+\section*{Solution of Poisson's equation}
+We seek the discrete solution of the vector Poisson's equation
+\begin{align*}
+-&\nabla^2 \u(x, y, z) = \f(x,y, z), \quad \in \Omega \\
+&\n \cdot \nabla \u   = 0, \quad y=1, z=1,\\
+&\u(x, y, z) = \u_0(x, y, z), \text{otherwise},
+\end{align*}
+where $\Omega = [0,1]^3$. We discretize the domain $\Omega$ using a quadrilateral $N_x \times N_y \times N_z$ grid of trilinear elements. 
+\begin{enumerate}
+\item Find the analytical expression of $\f(x,y)$ so that the exact 
+solution of the PDE is \[u_{0,x} = u_{0,y} = u_{0,z} =x\, e^{-(y-1)^2 (z-1)^2}.\] 
+\item Solve the problem by assuming an ordering of the variables per vector component,
+more precisely assume that the solution vector is 
+\begin{align}
+\left (
+\begin{array}{ccc}
+U_x^T & U_y^T & U_z^T
+\end{array}
+\right )^T
+\end{align}
+where $U_x$ contains all the unknowns corresponding to the $x$ component, etc.
+\item Next reorder the variables so that each node contains all the components. 
+Your solution vector obtains the form:
+\begin{align}
+\left (
+\begin{array}{ccccccc}
+u_{1_x} & u_{1_y} & u_{1_z} & \cdots & u_{n_x} & u_{n_y} & u_{n_z}
+\end{array}
+\right )^T
+\end{align}
+For the permutation (reordering) of the original matrix and vector familiarize your self
+with the MATLAB function \lstinline+repmat+\footnote{Experiment with a 6 x 6 matrix to understand permuting a matrix and permuting it back. If the permutation routine works correctly then permuting the matrix back using the inverse permutation should result to the original matrix before the permutation was applied. Suppose $p$ is the permutation vector. Then the inverse permutation $pinv$ satisfies $p(pinv(i)) = pinv(p(i)) = i$}. Compute the permutation array
+and then write a function that accepts the matrix to be permuted \lstinline+A+,
+the vector (rhs) to be permuted and the permutation array \lstinline+p+,
+and returns the permuted matrix and vector. Use \lstinline+spy()+ to see the result
+of the permutation. And provide in your report pictures of both the original matrix
+and the permuted one. Solve the permuted system measuring the times for the backslash
+and CG with ichol preconditioning. Note that for using ichol, you should apply the 
+boundary conditions keeping the symmetry of the matrix. Permute back the solution
+to the original ordering and compare to the solution you obtained at the previous 
+step. Are they the same?
+
+\item Finally assemble the matrix from the very beginning so that its ordering
+is identical to that of the previous step, meaning that you need to assemble
+vector mass and stiffness element matrices. 
+Provide the spy plot of the matrix. Compare the solution with the solution of 
+the previous step. Think how the code should be structured. Attach the code 
+for the vector assembly, the code for the permutation of the matrix and the vector
+in your assignment. 
+\end{enumerate}
+
+
+
+
+\end{document}

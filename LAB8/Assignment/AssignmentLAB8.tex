@@ -118,6 +118,15 @@ you just need to introduce a permutation array \lstinline+p=[4 5 6 1 2 3]; B=A(p
 \item Finally assemble the matrix from the very beginning so that its ordering
 is identical to that of the previous step, meaning that
 \begin{itemize}
+\item provide in LaTeX the vector mass matrix for a single triangular (2D) element,
+\item provide in LaTeX the mass matrix for a two triangular adjacent (2D) elements, 
+    that share the edge (1-2). Draw the triangles using LaTeX tickz package. You can
+    find LaTeX code for that easilly in the web. You can also use any other plotting tool.
+\item[Hint:] {\it You do not need to compute numbers of the entries of the mass. Assume
+that the mass matrix is a dense 3x3 matrix with entries $m_{ij}$. Use the symbolic
+package to construct the element matrix and for your convenience, use the \lstinline+help diag+,
+MATLAB function, you will see at the end there is a function to assist you in the easy
+construction of block diagonal matrices.}
 \item you need to assemble vector mass and stiffness element matrices, 
 \item you need to provide the spy plot of the local vector stiffness matrix and the global stiffness matrix,
 \item you need to compare the solution with the solution of the previous step. 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/MacPorts 2015_4) (preloaded format=xelatex 2015.10.9)  20 NOV 2015 18:23
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/MacPorts 2015_4) (preloaded format=xelatex 2015.10.9)  20 NOV 2015 18:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1977,14 +1977,31 @@ Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
-[2] (./AssignmentLAB8.aux) ) 
+
+Class scrartcl Warning: Usage of deprecated font command `\it'!
+(scrartcl)              You should note, that in 1994 font command `\it' has
+(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
+(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrartcl)              shouldn't use such commands any longer and within
+(scrartcl)              KOMA-Script usage of `\it' is definitely deprecated.
+(scrartcl)              See `fntguide.pdf' for more information about
+(scrartcl)              recommended font commands.
+(scrartcl)              Note also, that KOMA-Script will remove the definition
+(scrartcl)              of `\it' anytime until release of about version 3.20.
+(scrartcl)              But for now, KOMA-Script will replace deprecated `\it'
+(scrartcl)              by `\normalfont \itshape ' on input line 125.
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+[2] [3] (./AssignmentLAB8.aux) ) 
 Here is how much of TeX's memory you used:
  33528 strings out of 493706
  662396 string characters out of 6147347
- 791485 words of memory out of 5000000
+ 792485 words of memory out of 5000000
  36316 multiletter control sequences out of 15000+600000
  11638 words of font info for 86 fonts, out of 8000000 for 9000
  1330 hyphenation exceptions out of 8191
  82i,14n,109p,10500b,1653s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on AssignmentLAB8.pdf (2 pages).
+Output written on AssignmentLAB8.pdf (3 pages).

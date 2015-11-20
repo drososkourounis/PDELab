@@ -11,15 +11,16 @@ classdef Simulator < handle
         A           % the lhs (Laplace + boundary conditions)
         b           % the rhs
         x           % the solution vector
+
     end
     
     
     methods
         
-        
-        
+
         function obj = Simulator(N, dimens)
             
+            obj.init();
             % create mesh object
             obj.mesh       = Mesh;
             
@@ -56,9 +57,9 @@ classdef Simulator < handle
 
         function assemble(obj)
 
-            obj.init();
             obj.assembleV();
             obj.applyBoundaryConditions();
+
         end
 
 
@@ -71,7 +72,9 @@ classdef Simulator < handle
             A_I        = obj.A(:, I);
             obj.b      = obj.b - A_I*u0;
             obj.b(I)   = u0;
-            obj.A(:,I) = 0; obj.A(I,:) = 0;
+
+            obj.A(:,I) = 0; 
+            obj.A(I,:) = 0;
             obj.A(I,I) = speye(length(I));
 
 
@@ -140,13 +143,13 @@ classdef Simulator < handle
             J    = obj.mesh.Elements(:,jg)';
             I    = I(:); J = J(:);
                 
-            %obj.A = sparse(I, J, L, n, n);
+            obj.A = sparse(I, J, L, n, n);
             %obj.M = sparse(I, J, M, n, n);
 
-            K     = sparse(I, J, L+i*M, n, n);
-            obj.A = real(K);
-            obj.L = obj.A;
-            obj.M = imag(K);
+            %K     = sparse(I, J, L+i*M, n, n);
+            %obj.A = real(K);
+            %obj.L = obj.A;
+            %obj.M = imag(K);
 
             
 
@@ -190,7 +193,6 @@ classdef Simulator < handle
         
         
         function solve(obj)
-            
             
             solution_time_start = tic;
             
@@ -273,5 +275,5 @@ classdef Simulator < handle
         end
 
        
-    end
+    end   % methods
 end

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/MacPorts 2015_4) (preloaded format=xelatex 2015.10.9)  14 NOV 2015 16:20
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/MacPorts 2015_4) (preloaded format=xelatex 2015.10.9)  20 NOV 2015 18:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1716,9 +1716,9 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/bx/n' will be
 (Font)              scaled to size 13.59425pt on input line 53.
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 7.7091pt on input line 57.
+(Font)              scaled to size 7.7091pt on input line 56.
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 5.78183pt on input line 57.
+(Font)              scaled to size 5.78183pt on input line 56.
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              You should note, that in 1994 font command `\bf' has
@@ -1731,14 +1731,14 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/bx/n' will be
-(Font)              scaled to size 10.3373pt on input line 61.
+(Font)              scaled to size 10.3373pt on input line 60.
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/bx/n' will be
-(Font)              scaled to size 7.55237pt on input line 61.
+(Font)              scaled to size 7.55237pt on input line 60.
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/bx/n' will be
-(Font)              scaled to size 5.66428pt on input line 61.
+(Font)              scaled to size 5.66428pt on input line 60.
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              You should note, that in 1994 font command `\bf' has
@@ -1751,21 +1751,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
-
-
-Class scrartcl Warning: Usage of deprecated font command `\bf'!
-(scrartcl)              You should note, that in 1994 font command `\bf' has
-(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
-(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrartcl)              shouldn't use such commands any longer and within
-(scrartcl)              KOMA-Script usage of `\bf' is definitely deprecated.
-(scrartcl)              See `fntguide.pdf' for more information about
-(scrartcl)              recommended font commands.
-(scrartcl)              Note also, that KOMA-Script will remove the definition
-(scrartcl)              of `\bf' anytime until release of about version 3.20.
-(scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1779,7 +1765,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1793,7 +1779,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1807,7 +1793,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1821,7 +1807,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1835,7 +1821,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1849,7 +1835,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1863,7 +1849,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1877,7 +1863,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1891,7 +1877,7 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 61.
+(scrartcl)              by `\mathbf ' on input line 60.
 
 
 Class scrartcl Warning: Usage of deprecated font command `\bf'!
@@ -1905,22 +1891,47 @@ Class scrartcl Warning: Usage of deprecated font command `\bf'!
 (scrartcl)              Note also, that KOMA-Script will remove the definition
 (scrartcl)              of `\bf' anytime until release of about version 3.20.
 (scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrartcl)              by `\mathbf ' on input line 64.
+(scrartcl)              by `\mathbf ' on input line 60.
+
+
+Class scrartcl Warning: Usage of deprecated font command `\bf'!
+(scrartcl)              You should note, that in 1994 font command `\bf' has
+(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
+(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrartcl)              shouldn't use such commands any longer and within
+(scrartcl)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrartcl)              See `fntguide.pdf' for more information about
+(scrartcl)              recommended font commands.
+(scrartcl)              Note also, that KOMA-Script will remove the definition
+(scrartcl)              of `\bf' anytime until release of about version 3.20.
+(scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrartcl)              by `\mathbf ' on input line 63.
+
+
+Class scrartcl Warning: Usage of deprecated font command `\bf'!
+(scrartcl)              You should note, that in 1994 font command `\bf' has
+(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
+(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrartcl)              shouldn't use such commands any longer and within
+(scrartcl)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrartcl)              See `fntguide.pdf' for more information about
+(scrartcl)              recommended font commands.
+(scrartcl)              Note also, that KOMA-Script will remove the definition
+(scrartcl)              of `\bf' anytime until release of about version 3.20.
+(scrartcl)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrartcl)              by `\mathbf ' on input line 65.
 
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 4.81819pt on input line 86.
+(Font)              scaled to size 4.81819pt on input line 92.
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/bx/n' will be
-(Font)              scaled to size 4.72023pt on input line 86.
+(Font)              scaled to size 4.72023pt on input line 92.
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 8.67274pt on input line 86.
+(Font)              scaled to size 8.67274pt on input line 92.
 LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/bx/n' will be
-(Font)              scaled to size 8.49641pt on input line 86.
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
+(Font)              scaled to size 8.49641pt on input line 92.
 
 Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
@@ -1929,13 +1940,50 @@ Package inputenc Warning: inputenc package ignored with utf8 based engines.
 
 [1
 
-] [2] (./AssignmentLAB8.aux) ) 
+]
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+
+Class scrartcl Warning: Usage of deprecated font command `\it'!
+(scrartcl)              You should note, that in 1994 font command `\it' has
+(scrartcl)              been defined for compatiblitiy to Script 2.0 only.
+(scrartcl)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrartcl)              shouldn't use such commands any longer and within
+(scrartcl)              KOMA-Script usage of `\it' is definitely deprecated.
+(scrartcl)              See `fntguide.pdf' for more information about
+(scrartcl)              recommended font commands.
+(scrartcl)              Note also, that KOMA-Script will remove the definition
+(scrartcl)              of `\it' anytime until release of about version 3.20.
+(scrartcl)              But for now, KOMA-Script will replace deprecated `\it'
+(scrartcl)              by `\normalfont \itshape ' on input line 109.
+
+LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/m/it' will be
+(Font)              scaled to size 10.97104pt on input line 109.
+LaTeX Font Info:    Font shape `EU1/TimesNewRoman(0)/m/it' will be
+(Font)              scaled to size 8.01538pt on input line 110.
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+[2] (./AssignmentLAB8.aux) ) 
 Here is how much of TeX's memory you used:
- 33521 strings out of 493706
- 662040 string characters out of 6147347
- 778485 words of memory out of 5000000
- 36313 multiletter control sequences out of 15000+600000
- 11606 words of font info for 82 fonts, out of 8000000 for 9000
+ 33528 strings out of 493706
+ 662396 string characters out of 6147347
+ 791485 words of memory out of 5000000
+ 36316 multiletter control sequences out of 15000+600000
+ 11638 words of font info for 86 fonts, out of 8000000 for 9000
  1330 hyphenation exceptions out of 8191
  82i,14n,109p,10500b,1653s stack positions out of 5000i,500n,10000p,200000b,80000s
 

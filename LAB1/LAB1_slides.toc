@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Numerical methods for solving PDEs}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Analytical}{2}{0}{1}
+\beamer@sectionintoc {2}{The Finite Element Method}{2}{0}{2}
+\beamer@subsectionintoc {2}{1}{Numerical}{3}{0}{2}
+\beamer@subsectionintoc {2}{2}{Industrial problems}{4}{0}{2}
+\beamer@sectionintoc {3}{Mesh generation}{10}{0}{3}
+\beamer@sectionintoc {4}{Discretization}{13}{0}{4}
+\beamer@sectionintoc {5}{Linear Algebra}{14}{0}{5}
+\beamer@subsectionintoc {5}{1}{The linear system}{14}{0}{5}
+\beamer@subsectionintoc {5}{2}{Direct sparse methods}{15}{0}{5}
+\beamer@subsectionintoc {5}{3}{Iterative methods}{17}{0}{5}

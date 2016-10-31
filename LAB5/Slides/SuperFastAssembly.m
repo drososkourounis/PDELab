@@ -5,7 +5,7 @@ function [As,b] = assembleFast(mesh)
   ke    = Ke(:);
   M     = repmat(me, mesh.N_e, 1);
   K     = repmat(ke, mesh.N_e, 1);
-  i=1:mesh.N_v; j=ones(1, mesh.N_v);
+  i=1:mesh.N_v; 
 
   % ig = [1..N_v, 1..N_v, ... 1..N_v] N_v times
   ig=repmat(i, 1, mesh.N_v);

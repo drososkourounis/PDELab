@@ -9,7 +9,7 @@
   
   B = sparse(I, J, b(:), mesh.N, 1);
   
-  [I, J, b] = find(B);
+  b = full(B);
 
 end
 

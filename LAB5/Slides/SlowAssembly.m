@@ -1,7 +1,7 @@
 function [M,K,b] = assembleDiscreteOperators(mesh)
   N   = mesh.N;
   Ne  = mesh.N_e;
-  M   = zeros(N,N); K = zeros(N,N);
+  M   = sparse(N,N); K = sparse(N,N);
   b   = zeros(N,1);
   for e=1:N_e
     Me = makeMe(e, mesh);
